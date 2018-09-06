@@ -17,7 +17,7 @@ Add the following 2 lines to the .prospectus:
 ## Add this at the top
 Prospectus.extra_dep('file', 'prospectus_golang')
 
-## Add this inside your item that has a gemspec
+## Add this inside your item that has Golang deps
 extend ProspectusGolang::Deps.new
 ```
 
