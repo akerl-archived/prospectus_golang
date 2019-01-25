@@ -33,6 +33,7 @@ module ProspectusGolang
       list_deps.map do |x|
         name, version = x.split('@')
         tag, _, hash = version.split('-')
+        tag.sub!('+incompatible', '')
         [clean(name), tag, hash ? hash[0..6] : nil]
       end
     end
@@ -50,6 +51,8 @@ module ProspectusGolang
         return name.split('/', 2).last
       when %r{^golang\.org/x/}
         return "golang/#{name.split('/').last}"
+      when /^gopkg\.in/
+        return name.match(%r{^gopkg\.in/(.*?)(\.v\d+)?$})[1]
       end
       raise "Name not parsed properly: #{name}"
     end
