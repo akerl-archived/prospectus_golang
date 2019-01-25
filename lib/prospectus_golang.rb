@@ -52,7 +52,8 @@ module ProspectusGolang
       when %r{^golang\.org/x/}
         return "golang/#{name.split('/').last}"
       when /^gopkg\.in/
-        return name.match(%r{^gopkg\.in/(.*?)(\.v\d+)?$})[1]
+        path = name.match(%r{^gopkg\.in/(.*?)(\.v\d+)?$})[1]
+        return path.include?('/') ? path : "go-#{path}/#{path}"
       end
       raise "Name not parsed properly: #{name}"
     end

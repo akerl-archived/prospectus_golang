@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'prospectus_golang'
-  s.version     = '0.1.1'
+  s.version     = '0.1.2'
   s.date        = Time.now.strftime('%Y-%m-%d')
 
   s.summary     = 'Prospectus helpers for golang'
