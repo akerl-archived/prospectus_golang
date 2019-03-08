@@ -45,7 +45,8 @@ module ProspectusGolang
       o.split("\n").grep(/^#{name}/).map(&:split).map(&:last)
     end
 
-    def clean(name)
+    def clean(name) # rubocop:disable Metrics/MethodLength
+      name = name.sub(%r{/v\d+$}, '')
       case name
       when %r{^github\.com/}
         return name.split('/', 2).last
