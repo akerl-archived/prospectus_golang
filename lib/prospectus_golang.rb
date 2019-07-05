@@ -64,7 +64,7 @@ module ProspectusGolang
     end
 
     def github_map
-      @github_map ||= { 'github.com': nil }.merge(@options[:github_map] || {})
+      @github_map ||= { 'github.com' => nil }.merge(@options[:github_map] || {})
     end
 
     def github_clean(name)
